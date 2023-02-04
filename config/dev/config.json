@@ -5,17 +5,17 @@
         "description": "Define workspace creation, auth will be provided using Azure CLI",
         "reference": "https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py",
         "configuration": {
-            "name": "mlopscourse",
-            "subscription_id": "101913aa-06b3-4540-8aa5-c2737387e7ee",
-            "resource_group": "datascienceworld",
+            "name": "mlops",
+            "subscription_id": "9af23680-6467-43d8-948a-64f82277b12c",
+            "resource_group": "dannnh",
             "location": "eastus2",
             "create_resource_group": true,
             "tags": {"Environment": "Dev", "Course": "MLOps-K1"},
             "friendly_name": null,
             "storage_account": null,
-            "key_vault": "mlopscourse1903153941",
-            "app_insights": "mlopscourse7474290937",
-            "container_registry": "4cb317f096074ea496a48b55a272070e",
+            "key_vault": "mlops1969637788",
+            "app_insights": "mlops",
+            "container_registry": "8d8de05cba66482489956a5e5a5c4970",
             "adb_workspace": null,
             "primary_user_assigned_identity": null,
             "cmk_keyvault": null,
@@ -41,10 +41,10 @@
             {
                 "type": "azure_blob_container",
                 "datastore_name": "workspaceblobstore",
-                "container_name": "azureml-blobstore-4cb317f0-9607-4ea4-96a4-8b55a272070e",
-                "account_name": "mlopscourse4602067535",
+                "container_name": "azureml-blobstore-8d8de05c-ba66-4824-8995-6a5e5a5c4970",
+                "account_name": "mlops0680419016",
                 "sas_token": null,
-                "account_key": "Lykvxdgs2LdkRZaCQ1R6GFJzV7eh8O4/HfSSXiQ/yyOCjawxJz4aER9/m/0yTjraO41cb65Hscp5+ASt5Ttrdg==",
+                "account_key": "Ccir4whuXe7B9C4KxlBSXE6Q66v88s6swNtIbDQOzAeiUcqYftWfY95hPmIIOdITaffICIf8TDX8+AStNQ0Ueg==",
                 "protocol": null,
                 "endpoint": null,
                 "overwrite": false,
@@ -52,8 +52,8 @@
                 "skip_validation": false,
                 "blob_cache_timeout": null,
                 "grant_workspace_access": false,
-                "subscription_id": "101913aa-06b3-4540-8aa5-c2737387e7ee",
-                "resource_group": "datascienceworld"
+                "subscription_id": "9af23680-6467-43d8-948a-64f82277b12c",
+                "resource_group": "dannnh"
             }
         ]
     },
