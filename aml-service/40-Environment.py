@@ -15,12 +15,14 @@ def register_environment(env_config):
     # Get workspace
     ws = Workspace.from_config(auth=cli_auth)
     # Get environment configuration from yml file
-    print("Check/Start")
+    print("Check/1")
     env_name = env_config['name']
-    print("Check/End")
+    print("Check/2")
     env_file = env_config['file_path']
+    print("Check/3")
     env = Environment.from_conda_specification(env_name, env_file)
     # Register the enviromnment
+    print("Check/4")
     env.register(workspace=ws)
     print (f'Environment {env_name} registered.')
     # return the dataset information
