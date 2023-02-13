@@ -16,7 +16,7 @@ pip install --upgrade azure-cli
 # in any Python environment, including Jupyter Notebooks or Python IDE.
 pip install --upgrade azureml-sdk
 
-pip install azure.keyvault
+pip install azure.keyvault.secrets
 pip install azureml.pipeline
 
 pip install -r requirements.txt
