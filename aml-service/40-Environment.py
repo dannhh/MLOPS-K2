@@ -15,7 +15,9 @@ def register_environment(env_config):
     # Get workspace
     ws = Workspace.from_config(auth=cli_auth)
     # Get environment configuration from yml file
+    print("Check/Start")
     env_name = env_config['name']
+    print("Check/End")
     env_file = env_config['file_path']
     env = Environment.from_conda_specification(env_name, env_file)
     # Register the enviromnment
