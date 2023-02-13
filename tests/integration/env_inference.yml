@@ -1,4 +1,4 @@
-﻿# Conda environment specification. The dependencies defined in this file will
+# Conda environment specification. The dependencies defined in this file will
 # be automatically provisioned for managed runs. These include runs against
 # the localdocker, remotedocker, and cluster compute targets.
 
@@ -46,3 +46,9 @@ dependencies:
 
       # Job lib- whatever I don't know what we use it for
       - joblib
+
+      # pandas
+      - pandas
+
+      # numpy
+      - numpy
