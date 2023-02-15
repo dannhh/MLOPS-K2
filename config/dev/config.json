@@ -156,7 +156,7 @@
         "configuration": [
             {
                 "name": "modeltraining",
-                "compute_name": "vm-ds-dev-01",
+                "compute_name": "MLOpsNotebookComputeCluster",
                 "environment_name": "env-modeltraining",
                 "experiment_name": "modeltraining",
                 "parameter": {
