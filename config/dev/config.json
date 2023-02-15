@@ -106,11 +106,11 @@
         "supported_types": ["amlcompute", "computeinstance", "databricks", "synapse"],
         "configuration":[
             {
-                "name": "vm-ds-dev-01",
+                "name": "MLOpsNotebookComputeCluster",
                 "type": "amlcompute",
                 "provisioning_configuration": {
                     "vm_size": "STANDARD_DS11_V2",
-                    "vm_priority": "lowpriority",
+                    "vm_priority": "dedicated",
                     "min_nodes": 0,
                     "max_nodes": 2,
                     "idle_seconds_before_scaledown": 1800,
