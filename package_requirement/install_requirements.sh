@@ -20,3 +20,5 @@ pip install azure.keyvault.secrets
 pip install azureml.pipeline
 
 pip install -r requirements.txt
+
+pip install --upgrade numpy
