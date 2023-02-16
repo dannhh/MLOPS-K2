@@ -1,4 +1,3 @@
-﻿# Import library
 import joblib
 import json
 import numpy as np
