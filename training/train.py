@@ -15,6 +15,7 @@ import lightgbm
 parser = argparse.ArgumentParser()
 parser.add_argument('--output-model-name', dest='output_model_name', type=str, help='output model name')
 parser.add_argument('--feature-list-names', dest='feature_list_names', type=str, help='list of input features')
+parser.add_argument('--categorical-feature-list-names', dest='categorical_feature_list_names', type=str, help='list of input features')
 parser.add_argument('--target', dest='target', type=str, help='target column name')
 args = parser.parse_args()
 

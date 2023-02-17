@@ -34,7 +34,7 @@ def create_pipeline(pipeline_config):
     input_dataset_name = pipeline_config['parameter']['dataset_name']
     output_model_name = pipeline_config['parameter']['output_model_name']
     feature_list_names = pipeline_config['parameter']['feature_list_names']
-    categorical_feature_list_names = pipeline_config['parameter']['feature_list_names']
+    categorical_feature_list_names = pipeline_config['parameter']['categorical_feature_list_names']
     target = pipeline_config['parameter']['target_column']
     model_hyps = str(pipeline_config['parameter']['model_hyperparameters'])
 
@@ -97,7 +97,7 @@ def create_pipeline(pipeline_config):
                 output_split_test.parse_parquet_files()],
         arguments=['--output-model-name', output_model_name,
                    '--feature-list-names', feature_list_names,
-                   '--categorical_feature_list_names', categorical_feature_list_names,
+                   '--categorical-feature-list-names', categorical_feature_list_names,
                    '--target', target],
         compute_target=pipeline_cluster,
         runconfig=pipeline_run_config,
