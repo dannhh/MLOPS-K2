@@ -61,10 +61,10 @@ def register_delimited_files_dataset(dset_config, workspace):
     # assign the right path object
     dset_config['path'] = (dstore, path)
     # Upload file
-    dstore.upload_files(files=['./data/insurance.csv'],
+    dstore.upload_files(files=['./data/credit_score.csv'],
                        target_path='data/',
                        overwrite=True)
-    print('completed upload file ./data/insurance.csv')
+    print('completed upload file ./data/credit_score.csv')
     # Get the keys for this function
     param_keys = ['path', 'validate', 'include_path', 'infer_column_types', 'set_column_types',
                   'separator', 'header', 'partition_format', 'support_multi_line', 'empty_as_string', 'encoding']
