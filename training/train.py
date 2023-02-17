@@ -23,8 +23,8 @@ args = parser.parse_args()
 run = Run.get_context()
 input_data_train = run.input_datasets['output_split_train']
 input_data_test  = run.input_datasets['output_split_test']
-input_df_train = input_data_train.to_pandas_dataframe().drop('id', axis=1)
-input_df_test  = input_data_test.to_pandas_dataframe().drop('id', axis=1)
+input_df_train = input_data_train.to_pandas_dataframe().drop('CUSTOMER_ID', axis=1)
+input_df_test  = input_data_test.to_pandas_dataframe().drop('CUSTOMER_ID', axis=1)
 feature_columns = args.feature_list_names.split(",")
 categorical_feature_columns = args.categorical_feature_list_names.split(",")
 target_column = args.target
