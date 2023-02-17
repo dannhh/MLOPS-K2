@@ -24,11 +24,16 @@ input_data_train = run.input_datasets['output_split_train']
 input_data_test  = run.input_datasets['output_split_test']
 input_df_train = input_data_train.to_pandas_dataframe().drop('id', axis=1)
 input_df_test  = input_data_test.to_pandas_dataframe().drop('id', axis=1)
-feature_columns = args.feature_list_names.split(", ")
+feature_columns = args.feature_list_names.split(",")
+categorical_feature_columns = args.categorical_feature_list_names.split(",")
 target_column = args.target
 
 X_train, y_train = input_df_train[feature_columns], input_df_train[target_column]
 X_test, y_test = input_df_test[feature_columns], input_df_test[target_column]
+
+for column in categorical_feature_columns:
+    X_train[column] = X_train[column].astype('category')
+    X_test[column] = X_test[column].astype('category')
 
 run.log('Input columns: ', ', '.join(list(input_df_train.columns)))
 

@@ -65,11 +65,11 @@
         ],
         "configuration": [
             {
-                "name": "insurance",
-                "description": "File dataset for Insurance upload from .csv file",
+                "name": "credit-score",
+                "description": "File dataset for Credit upload from .csv file",
                 "tags": null,
                 "datastore_name": "workspaceblobstore",
-                "path": "data/insurance.csv"
+                "path": "data/credit_score.csv"
             }
         ]
     },
@@ -81,12 +81,12 @@
         ],
         "configuration": [
             {
-                "name": "tab-insurance",
+                "name": "tab-credit-score",
                 "from": "delimited_files",
-                "description": "Insurance classification Dataset",
+                "description": "Default credit card client information",
                 "tags": {},
                 "datastore_name": "workspaceblobstore",
-                "path": "data/insurance.csv",
+                "path": "data/credit_score.csv",
                 "validate": true,
                 "include_path": false,
                 "infer_column_types": true,
@@ -160,10 +160,11 @@
                 "environment_name": "env-modeltraining",
                 "experiment_name": "modeltraining",
                 "parameter": {
-                    "output_model_name": "insurance-model",
-                    "dataset_name": "tab-insurance",
-                    "target_column": "target",
-                    "feature_list_names": "ps_ind_01, ps_ind_02_cat, ps_ind_03, ps_ind_04_cat, ps_ind_05_cat, ps_ind_06_bin, ps_ind_07_bin, ps_ind_08_bin, ps_ind_09_bin, ps_ind_10_bin, ps_ind_11_bin, ps_ind_12_bin, ps_ind_13_bin, ps_ind_14, ps_ind_15, ps_ind_16_bin, ps_ind_17_bin, ps_ind_18_bin, ps_reg_01, ps_reg_02, ps_reg_03, ps_car_01_cat, ps_car_02_cat, ps_car_03_cat, ps_car_04_cat, ps_car_05_cat, ps_car_06_cat, ps_car_07_cat, ps_car_08_cat, ps_car_09_cat, ps_car_10_cat, ps_car_11_cat, ps_car_11, ps_car_12, ps_car_13, ps_car_14, ps_car_15, ps_calc_01, ps_calc_02, ps_calc_03, ps_calc_04, ps_calc_05, ps_calc_06, ps_calc_07, ps_calc_08, ps_calc_09, ps_calc_10, ps_calc_11, ps_calc_12, ps_calc_13, ps_calc_14, ps_calc_15_bin, ps_calc_16_bin, ps_calc_17_bin, ps_calc_18_bin, ps_calc_19_bin, ps_calc_20_bin",
+                    "output_model_name": "credit-score-model",
+                    "dataset_name": "tab-credit-score",
+                    "target_column": "BAD_TAG",
+                    "feature_list_names": "AGE,GENDER,EDUCATIONAL,PAYROLL_FLAG,EMAIL_FLAG,PHONE_FLAG,ADDRESS,CUST_INCOME,MOB,DPD_ABOVE1_L3M,DPD_ABOVE1_L6M,DPD_ABOVE30_L3M,DPD_ABOVE30_L6M,DPD_ABOVE60_L3M,DPD_ABOVE60_L6M,DPD_ABOVE90_L3M,DPD_ABOVE90_L6M,CONS_DPD_ABOVE1_L3M,CONS_DPD_ABOVE1_L5M,CONS_DPD_ABOVE30_L3M,CONS_DPD_ABOVE30_L5M,CONS_DPD_ABOVE60_L3M,CONS_DPD_ABOVE60_L5M,CONS_DPD_ABOVE90_L3M,CONS_DPD_ABOVE90_L5M,DPD_INC_L3M,DPD_DEC_L3M,DPD_INC_L6M,DPD_DEC_L6M,CONS_DPD_INC_L3M,CONS_DPD_DEC_L3M,CONS_DPD_INC_L6M,CONS_DPD_DEC_L6M,UTIL_L3M,UTIL_L6M,UTIL_PREV_OVER_L3M,UTIL_L3M_OVER_L6M,UTIL_L3M_OVER_P3M,UTIL_L6M_OVER_P6M,UTIL_INC_L3M,UTIL_INC_L6M,CONS_UTIL_INC_L3M,CONS_UTIL_INC_L6M,UTIL_DEC_L3M,UTIL_DEC_L6M,CONS_UTIL_DEC_L3M,CONS_UTIL_DEC_L6M,UTIL_ABOVE50_L3M,UTIL_ABOVE75_L3M,UTIL_ABOVE90_L3M,CONS_UTIL_ABOVE50_L3M,CONS_UTIL_ABOVE75_L3M,CONS_UTIL_ABOVE90_L3M,UTIL_ABOVE50_L6M,UTIL_ABOVE75_L6M,UTIL_ABOVE90_L6M,CONS_UTIL_ABOVE50_L5M,CONS_UTIL_ABOVE75_L5M,CONS_UTIL_ABOVE90_L5M,BAL_PREV_OVER_L3M,BAL_L3M_OVER_L6M,BAL_L3M_OVER_P3M,BAL_L6M_OVER_P6M,BAL_INC_L3M,BAL_INC_L6M,CONS_BAL_INC_L3M,CONS_BAL_INC_L6M,BAL_DEC_L3M,BAL_DEC_L6M,CONS_BAL_DEC_L3M,CONS_BAL_DEC_L6M,CRLMT_OVER_CASA_L3M,CRLMT_OVER_CASA_L6M,BAL_OVER_CASA_L3M,BAL_OVER_CASA_L6M,BAL_OVER_CREDITCASA_L3M,BAL_OVER_CREDITCASA_L6M,CASHADV_OVER_BAL_L3M,CASHADV_OVER_BAL_L6M,PURCHASE_OVER_BAL_L3M,PURCHASE_OVER_BAL_L6M,PURCHASE_ABOVE0_L3M,PURCHASE_ABOVE0_L6M,CASH_ADV_ABOVE0_L3M,CASH_ADV_ABOVE0_L6M,LATE_PYMT_ABOVE0_L3M,LATE_PYMT_ABOVE0_L6M,INTEREST_ABOVE0_L3M,INTEREST_ABOVE0_L6M,CONS_PURCHASE_ABOVE0_L3M,CONS_PURCHASE_ABOVE0_L5M,CONS_CASH_ADV_ABOVE0_L3M,CONS_CASH_ADV_ABOVE0_L5M,CONS_LATE_PYMT_ABOVE0_L3M,CONS_LATE_PYMT_ABOVE0_L5M,CONS_INTEREST_ABOVE0_L3M,CONS_INTEREST_ABOVE0_L5M,REVOLVED_L3M,REVOLVED_L6M,CONS_REVOLVED_L3M,CONS_REVOLVED_L5M,PAID_L3M,PAID_L6M",
+                    "categorical_feature_list_name": "GENDER,PAYROLL_FLAG,EMAIL_FLAG,PHONE_FLAG,ADDRESS",
                     "model_hyperparameters": {
                         "learning_rate": 0.02,
                         "boosting_type": "gbdt",
@@ -190,7 +191,7 @@
             "https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py"
         ],
         "configuration": {
-            "name": "insurance-aci",
+            "name": "credit-score-aci",
             "inference_config": {
                 "entry_script": "integration/score.py",
                 "source_directory": "tests",
@@ -230,7 +231,7 @@
             "https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py"
         ],
         "configuration": {
-            "name": "insurance-aci",
+            "name": "credit-score-aci",
             "inference_config": {
                 "entry_script": "integration/score.py",
                 "runtime": "python",
@@ -248,7 +249,7 @@
         "description": "Load model for inference",
         "reference": "https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py",
         "configuration": {
-            "name": "insurance-model",
+            "name": "credit-score-model",
             "version": null,
             "tags": {
                 "Training context": "Pipeline"
@@ -256,10 +257,10 @@
             "properties": {
                 "type": "classification"
             },
-            "description": "Insurance classification Model",
+            "description": "Credit score classification Model",
             "primary_metric": "auc",
             "is_higher_better": true,
-            "dataset": "tab-insurance"
+            "dataset": "tab-credit-score"
         }
     }
 }
