@@ -8,7 +8,7 @@ import os
 import json
 import re
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, auc
+from sklearn.metrics import classification_report, roc_auc_score
 import lightgbm
 
 # Get parameters
@@ -82,8 +82,7 @@ def get_metrics(model, X_test, y_test):
     precision = metrics['precision']
     recall = metrics['recall']
     f1 = metrics['f1-score']
-    fpr, tpr, thresholds = metrics.roc_curve(y_test, y_pred, pos_label=1)
-    auc = auc(fpr, tpr)
+    auc = roc_auc_score(y_test, y_pred)
     return precision, recall, f1, auc
 
 test_precision, test_recall, test_f1, test_auc = get_metrics(model, X_test, y_test)
