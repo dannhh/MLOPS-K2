@@ -6,7 +6,7 @@ from datetime import datetime
 
 DATE_FORMAT = '%Y-%m-%dT%H:%M:%S.%f'
 MODEL_ALGORITHM = 'light gradient boosting'
-MODEL_NAME = 'insurance-model.pkl'
+MODEL_NAME = 'credit-score-model.pkl'
 
 def init():
     global model

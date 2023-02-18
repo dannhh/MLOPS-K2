@@ -21,7 +21,7 @@ def read_config(config_file):
         return json.load(f)['pipeline']['configuration']
 
 def create_pipeline(pipeline_config):
-    """This pipeline is specific for insurance model training"""
+    """This pipeline is specific for credit score model training"""
     # Get some variables required for this pipeline
     pipeline_name = pipeline_config['name']
     compute_name = pipeline_config['compute_name']
@@ -191,7 +191,7 @@ def publish_pipeline(pipeline, name):
 def publish_pipeline_endpoint(pipeline):
     pipeline_name = pipeline.name
     pipeline_endpoint_name = pipeline_name+'-endpoint'
-    pipeline_desc = 'pipeline of insurance model training'
+    pipeline_desc = 'pipeline of credit score model training'
     try:
         pipeline_endpoint = PipelineEndpoint.get(workspace=ws, name=pipeline_endpoint_name)
         pipeline_endpoint.add(pipeline)
