@@ -8,7 +8,7 @@ import os
 import json
 import re
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, auc
 import lightgbm
 
 # Get parameters
@@ -32,6 +32,7 @@ target_column = args.target
 X_train, y_train = input_df_train[feature_columns], input_df_train[target_column]
 X_test, y_test = input_df_test[feature_columns], input_df_test[target_column]
 
+# 2. Handle categorical feature for lgbm
 for column in categorical_feature_columns:
     X_train[column] = X_train[column].astype('category')
     X_test[column] = X_test[column].astype('category')
@@ -51,7 +52,7 @@ hyper_params = {
     "verbose": 0
 }
 
-# 2. Train model
+# 3. Train model
 def train_eval(X_train, y_train, X_test, y_test):
     train_data = lightgbm.Dataset(X_train, label=y_train)
     valid_data = lightgbm.Dataset(X_test, label=y_test, free_raw_data=False)
@@ -71,21 +72,23 @@ model = train_eval(X_train, y_train, X_test, y_test)
 joblib.dump(value=model, filename=model_file)
 print(" [Successful] save model in ", model_file)
 
-# 3. Evaluate model
+# 4. Evaluate model
 def get_metrics(model, X_test, y_test):
     y_pred = model.predict(X_test)
-    y_pred = [1 if p >= 0.5 else 0 for p in y_pred]
-    cls_rp = classification_report(y_test, y_pred, output_dict = True)
+    y_pred_th05 = [1 if p >= 0.5 else 0 for p in y_pred]
+    cls_rp = classification_report(y_test, y_pred_th05, output_dict = True)
     cls_rp = pd.DataFrame(cls_rp).transpose()
     metrics = dict(cls_rp.loc['weighted avg'])
     precision = metrics['precision']
     recall = metrics['recall']
     f1 = metrics['f1-score']
-    return precision, recall, f1
+    fpr, tpr, thresholds = metrics.roc_curve(y_test, y_pred, pos_label=1)
+    auc = auc(fpr, tpr)
+    return precision, recall, f1, auc
 
-test_precision, test_recall, test_f1 = get_metrics(model, X_test, y_test)
-train_precision, train_recall, train_f1 = get_metrics(model, X_train, y_train)
-# 4. Save the trained model in the outputs folder
+test_precision, test_recall, test_f1, test_auc = get_metrics(model, X_test, y_test)
+train_precision, train_recall, train_f1, train_auc = get_metrics(model, X_train, y_train)
+# 5. Save the trained model in the outputs folder
 # Register the model
 print('Registering model...')
 Model.register(
@@ -103,9 +106,11 @@ Model.register(
         'evaluation.test.precision': test_precision,
         'evaluation.test.recall': test_recall,
         'evaluation.test.f1': test_f1,
+        'evaluation.test.auc': test_auc,
         'evaluation.train.precision': train_precision,
         'evaluation.train.recall': train_recall,
         'evaluation.train.f1': train_f1,
+        'evaluation.train.auc': train_auc,
     }
 )
 

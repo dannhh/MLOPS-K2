@@ -44,19 +44,19 @@ python aml-service/50-PipelineModelTraining.py -config config/dev/config.json -p
 7. Model deployment Local service:
 
 ```
-python aml-service/77-DeployToLocalService.py -config config/dev/config.json
+python aml-service/80-DeployToAci.py -config config/dev/config.json
 ```
 
 8. Testing local deployment:
 
 ```
-python aml-service/78-TestLocal.py -config config/dev/config.json
+python aml-service/81-TestAci.py -config config/dev/config.json
 ```
 
 9. Delete local deployment:
 
 ```
-python aml-service/79-DeleteLocalService.py -config config/dev/config.json
+python aml-service/82-DeleteAciService.py -config config/dev/config.json
 ```
 
 # Reference
